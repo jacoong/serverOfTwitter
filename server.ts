@@ -23,7 +23,9 @@ import multer from 'multer';
 import axios from 'axios';
 
 
-const port = 8001;
+const port = process.env.PORT || 8001;
+
+
 const app = express();
 
 
