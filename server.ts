@@ -90,6 +90,10 @@ app.use(flash());
 app.use('/api', commentDb);
 app.use('/user', userDb);
 
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+
 app.get('/isLogin',isLoggedIn,errorHandler(async(req:Request,res:Response,next:NextFunction)=>{
     res.status(200).json({ redirect: '/main' });
 }))
