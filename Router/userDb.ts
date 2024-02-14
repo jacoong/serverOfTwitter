@@ -228,10 +228,6 @@ router.post("/login", (req: Request, res: Response, next: NextFunction) => {
         const messages = req.flash("info");
         return res.status(201).send(messages[0]);
         // return res.status(200).json({message:'login successful',userInfo:userInfo});
-      }else{
-        req.flash("info", info.message);
-        const messages = req.flash("info");
-        return res.status(201).send(messages[0]);
       }
 
     }
