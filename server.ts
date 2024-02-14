@@ -34,7 +34,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 
-connect('mongodb+srv://yuh0812:IKyHSWm3MkDKZfFS@clustertoulousehyunwu.tebgoex.mongodb.net/?retryWrites=true&w=majority')
+connect('mongodb+srv://yuh0812:IKyHSWm3MkDKZfFS@test.tebgoex.mongodb.net/?retryWrites=true&w=majority')
 .then(()=>console.log('success!!'))
 .catch(e=>{console.log(e)})
 
