@@ -59,7 +59,7 @@ var path_1 = __importDefault(require("path"));
 var port = process.env.PORT || 8001;
 var app = (0, express_1.default)();
 app.use('/public', express_1.default.static(path_1.default.join(__dirname, 'public')));
-(0, mongoose_1.connect)('mongodb://127.0.0.1:27017/commentProjectDb')
+(0, mongoose_1.connect)('mongodb+srv://yuh0812:IKyHSWm3MkDKZfFS@clustertoulousehyunwu.tebgoex.mongodb.net/ClusterToulouseHyunwu?retryWrites=true&w=majority')
     .then(function () { return console.log('success!!'); })
     .catch(function (e) { console.log(e); });
 app.use(express_1.default.json());

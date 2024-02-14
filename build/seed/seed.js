@@ -53,7 +53,7 @@ function run() {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
                     // Connect to MongoDB
-                    return [4 /*yield*/, (0, mongoose_1.connect)('mongodb://127.0.0.1:27017/commentProjectDb')];
+                    return [4 /*yield*/, (0, mongoose_1.connect)('mongodb+srv://yuh0812:IKyHSWm3MkDKZfFS@clustertoulousehyunwu.tebgoex.mongodb.net/ClusterToulouseHyunwu?retryWrites=true&w=majority')];
                 case 1:
                     // Connect to MongoDB
                     _a.sent();

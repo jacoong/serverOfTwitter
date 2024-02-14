@@ -34,7 +34,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 
-connect('mongodb://127.0.0.1:27017/commentProjectDb')
+connect('mongodb+srv://yuh0812:IKyHSWm3MkDKZfFS@clustertoulousehyunwu.tebgoex.mongodb.net/ClusterToulouseHyunwu?retryWrites=true&w=majority')
 .then(()=>console.log('success!!'))
 .catch(e=>{console.log(e)})
 

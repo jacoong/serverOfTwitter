@@ -14,7 +14,7 @@ import {CommentModel} from '../model/commentSchema'
 async function run() {
     try {
         // Connect to MongoDB
-        await connect('mongodb://127.0.0.1:27017/commentProjectDb');
+        await connect('mongodb+srv://yuh0812:IKyHSWm3MkDKZfFS@clustertoulousehyunwu.tebgoex.mongodb.net/ClusterToulouseHyunwu?retryWrites=true&w=majority');
         console.log('MongoDB connection successful');
         await seedDB();
     } catch (err) {
