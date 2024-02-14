@@ -75,7 +75,7 @@ app.use((req,res,next)=>{
         // const test = req.isAuthenticated();
         // res.send({'user':test})
     }else{
-        
+        console.log('user.not exist')
     }
 
     next()

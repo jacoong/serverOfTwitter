@@ -194,6 +194,8 @@ router.get("/getSession/userinfo", async(req: Request, res: Response) => {
         const { _id } = req.user as IuserSchema;
         const userInfo = await User.findById(_id);
         return res.status(201).send({userInfo: userInfo,req:req.user});
+    }else{
+      return
     }
         }
   );
