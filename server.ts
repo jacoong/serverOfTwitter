@@ -108,6 +108,7 @@ app.post('/checkDb',errorHandler(async(req:Request,res:Response,next:NextFunctio
     const data = req.body;  //input,type
     if(data.type === 'email'){
         const Users = await User.findOne({ email: data.input});
+        console.log(Users,'클리스만아웃제발')
         if(Users){
             res.status(200).json({ result: true }); 
         }else{

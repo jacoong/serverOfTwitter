@@ -190,14 +190,13 @@ router.get(
 
 router.get("/getSession/userinfo", async(req: Request, res: Response) => {
     if(req.user) {
-        console.log('클린스만 아웃');
         const { _id } = req.user as IuserSchema;
-        console.log('클린스만 아웃',_id);
         const userInfo = await User.findById(_id);
         return res.status(201).send({userInfo: userInfo,req:req.user});
+    }else if(!req.user){
+      return res.status(200).send('no session data of user');
     }else{
-        console.log('클린스만 아웃1231213');
-      return res.status(200).send('클린슴나 아웃');
+      return res.status(401);
     }
         }
   );
