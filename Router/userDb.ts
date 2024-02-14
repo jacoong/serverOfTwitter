@@ -209,20 +209,6 @@ router.post("/login", (req: Request, res: Response, next: NextFunction) => {
       if (err) {
         return next(err);
       }
-
-      req.logIn(user, async (err) => {
-
-        const userId = user._id;
-        const userInfo = await User.findById(userId);
-
-        if (err) {
-          return next(err);
-        }
-        return res
-          .status(200)
-          .json({ message: "login successful", userInfo: userInfo });
-      });
-
       if (!user) {
         req.flash("info", info.message);
         const messages = req.flash("info");
@@ -230,6 +216,17 @@ router.post("/login", (req: Request, res: Response, next: NextFunction) => {
         // return res.status(200).json({message:'login successful',userInfo:userInfo});
       }
 
+      req.logIn(user, async (err) => {
+        const userId = user._id;
+
+        const userInfo = await User.findById(userId);
+        if (err) {
+          return next(err);
+        }
+        return res
+          .status(200)
+          .json({ message: "login successful", userInfo: userInfo });
+      });
     }
   )(req, res, next);
 });
