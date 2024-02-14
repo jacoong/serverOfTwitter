@@ -33,7 +33,6 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 
-
 connect('mongodb+srv://yuh0812:IKyHSWm3MkDKZfFS@test.tebgoex.mongodb.net/?retryWrites=true&w=majority')
 .then(()=>console.log('success!!'))
 .catch(e=>{console.log(e)})
@@ -69,7 +68,6 @@ app.use(passport.session());
 
 app.use((req,res,next)=>{
     console.log(req.user,'1');
-
     if(req.user){
         console.log('user.exist')
         // const test = req.isAuthenticated();
@@ -77,8 +75,7 @@ app.use((req,res,next)=>{
     }else{
         console.log('user.not exist')
     }
-
-    next()
+    next();
 })
 
 app.use(session({
@@ -87,6 +84,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: { secure: true }
   }));
+
 app.use(flash());
 
 app.use('/api', commentDb);

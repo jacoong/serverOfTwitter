@@ -209,17 +209,12 @@ router.post("/login", (req: Request, res: Response, next: NextFunction) => {
       if (err) {
         return next(err);
       }
-      if (!user) {
-        req.flash("info", info.message);
-        const messages = req.flash("info");
-        return res.status(201).send(messages[0]);
-        // return res.status(200).json({message:'login successful',userInfo:userInfo});
-      }
 
       req.logIn(user, async (err) => {
-        const userId = user._id;
 
+        const userId = user._id;
         const userInfo = await User.findById(userId);
+
         if (err) {
           return next(err);
         }
@@ -227,6 +222,18 @@ router.post("/login", (req: Request, res: Response, next: NextFunction) => {
           .status(200)
           .json({ message: "login successful", userInfo: userInfo });
       });
+
+      if (!user) {
+        req.flash("info", info.message);
+        const messages = req.flash("info");
+        return res.status(201).send(messages[0]);
+        // return res.status(200).json({message:'login successful',userInfo:userInfo});
+      }else{
+        req.flash("info", info.message);
+        const messages = req.flash("info");
+        return res.status(201).send(messages[0]);
+      }
+
     }
   )(req, res, next);
 });
